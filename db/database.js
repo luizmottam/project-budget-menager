@@ -1,8 +1,8 @@
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('database.db');
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("database.db");
 
 db.serialize(() => {
-    db.run(`CREATE TABLE IF NOT EXISTS income_distribution (
+  db.run(`CREATE TABLE IF NOT EXISTS income_distribution (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         salary REAL NOT NULL,
         tithing_percentage REAL NOT NULL,
@@ -14,7 +14,7 @@ db.serialize(() => {
         created_at DATETIME
         );`);
 
-    db.run(`CREATE TABLE IF NOT EXISTS expenses (
+  db.run(`CREATE TABLE IF NOT EXISTS expenses (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         category TEXT NOT NULL,
         amount REAL NOT NULL,
